@@ -30,8 +30,8 @@ kubectl get ksvc kotlinknativefunction \
 
 [source]
 ----
-curl http://kotlinknativefunction.default.{IP_ADDRESS}.xip.io
-url -H "Content-Type: text/plain" http://kotlinknativefunction.default.{IP_ADDRESS}.xip.io/hello -d "Spring Cloud Function"
+curl -H "Content-Type: text/plain" http://kotlinknativefunction.default.{IP_ADDRESS}.xip.io/hello -d "Spring Cloud Function"
+
 Hello Spring Cloud Function!
 ----
 
