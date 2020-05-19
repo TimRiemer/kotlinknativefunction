@@ -1,0 +1,5 @@
+# curl -H "Content-Type: text/plain" localhost:8080/hello -d "Spring Cloud Function"
+POST localhost:8080/hello
+Content-Type: text/plain
+
+Spring Cloud Function
