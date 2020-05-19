@@ -1,0 +1,42 @@
+= Demo of Spring Cloud Function using Kotlin Function
+
+This is a little demo example showing how to use Spring Cloud Function together with Kotlin Function.
+The example is deployed as Knative Serving service.
+
+== Build, Deploy, Test
+
+=== Build Docker image
+[source]
+----
+# Build the container on your local machine
+docker build -t {DOCKER-ID}/kotlinknativefunction .
+
+# Push the container to docker registry
+docker push {DOCKER-ID}/kotlinknativefunction
+----
+
+=== Deploy Knative Serving service
+[source]
+----
+kubectl apply --filename service.yaml
+----
+
+=== Test deployed service
+[source]
+----
+kubectl get ksvc kotlinknativefunction \
+--output=custom-columns=NAME:.metadata.name,URL:.status.url
+----
+
+[source]
+----
+curl http://kotlinknativefunction.default.{IP_ADDRESS}.xip.io
+url -H "Content-Type: text/plain" http://kotlinknativefunction.default.{IP_ADDRESS}.xip.io/hello -d "Spring Cloud Function"
+Hello Spring Cloud Function!
+----
+
+=== Remove Knative Serving service
+[source]
+----
+kubectl delete --filename service.yaml
+----
