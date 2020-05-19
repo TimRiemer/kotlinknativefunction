@@ -14,7 +14,7 @@ repositories {
 	mavenCentral()
 }
 
-extra["springCloudVersion"] = "Hoxton.SR3"
+extra["springCloudVersion"] = "Hoxton.SR4"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.cloud:spring-cloud-starter-function-web")
 	implementation("org.springframework.cloud:spring-cloud-function-kotlin")
+	implementation("org.json:json:20190722")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
